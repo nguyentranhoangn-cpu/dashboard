@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Emotion Value Trails - Domain Dataset</title> 
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <header>
+            <h1>Emotion Value Trails & Feature Explorer for Finance Domain Dataset</h1>
+            <p>Training dataset: <strong>Finance News Sentiments by Anto Benedetti</strong><br>https://www.kaggle.com/datasets/antobenedetti/finance-news-sentiments</p>
+            <p>Test dataset: <strong>fingpt-sentiment-train</strong> <br>https://huggingface.co/datasets/FinGPT/fingpt-sentiment-train</p>
+        </header>
+
+        <main>
+            <section id="section-1">
+                <div id="widgets">
+                    <div class="widget">
+                        <h3>Total dimensions tracked</h3>
+                        <p class="metric">2048</p>
+                    </div>
+                    <div class="widget">
+                        <h3>Top predictor callout</h3>
+                        <p class="metric">feature 505</p>
+                        <p class="small-metric">LR: 3443.9</p>
+                    </div>
+                    
+                </div>
+                <div id="bi1">
+                    <div id="feature-list-container">
+                        <div id="feature-list-header">Strongest features based on Likelihood Ratio (LR)</div>
+                        <div id="feature-scroll-box">
+                            <ul id="top-features">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div id="control-panel-div">
+                            <div class="controls">
+                                <label><strong>Feature Dimension (1 - 2048):</strong> 
+                                <input type="number" id="dim" min="1" max="2048" value="1">
+                                </label>
+                                <label><input type="checkbox" id="showTrain" checked><span class="swatch" style="background:#1f77b4"></span>train</label>
+                                <label><input type="checkbox" id="showTest" checked><span class="swatch" style="background:#ff7f0e"></span>test</label>
+                                <label><input type="checkbox" id="showLabels" checked>labels</label>
+                                <label><input type="checkbox" id="showModel" checked>positions from the fitted logit (solid)</label>
+                                <label><input type="checkbox" id="showRaw">positions from the raw shares (dashed, hollow)</label>
+                                <label><input type="checkbox" id="fadeNs">fade bins not significant at 5%</label>
+                                <label><input type="hidden" id="showGrid"></label>
+                            </div>
+                            <div class="metrics-display" id="lr-metrics">
+                                
+                            </div>
+                            </div>
+
+                        <!-- BLUE DIV: SVG emotion trail dot chart rendered based on chosen feature -->
+                        <div id="chart-container-div">
+                            <svg id="plot" width="100%" height="" viewBox="0 0 100% 100%"></svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+        </main>
+
+    </body>
+    <script src="render.js"> </script>
+</html>
